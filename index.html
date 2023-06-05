@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="style.css" rel="stylesheet" />
+
+    <title>The trinity of front-end quality</title>
+  </head>
+  <body>
+    <h1>The trinity of front-end quality</h1>
+    <p>
+      There are three main end goals that front-end developers keep striving
+      for:
+    </p>
+    <ul>
+      <li>Accessibility</li>
+      <li>Performance</li>
+      <li>SEO</li>
+    </ul>
+    <h2>SEO(Search Engine Optimatization)</h2>
+    <p>
+      Refers to making sure your website is rankend relevantly high on search
+      engines's SERPs, like google's. Because the exact rules checked by search
+      engines are not entirely public, and competition for popular queries is so
+      fierce, SEO is often referred toas black magic... and well, sometimes it
+      does feel like it is! But there are very clear best practices to apply to
+      be respected and taken seriously by Google and its friends.
+    </p>
+    <p>
+      Making your markup as semantic as you can will help the search engine
+      understand your webpage: but by now, most websites do that right , so it
+      is definitely not going to be enough.
+    </p>
+    <p>
+      More current strategies involve the content you put in your website, the
+      urls, the internal and / or external linking, the website
+      performance,...The list of things that can be done to improve one's SEO os
+      endless!
+    </p>
+    <p>
+      To monitor SEO results, one should use monitoring tools which are going to
+      keep track of search engineranking continuously for them in various
+      countries. Most tools are paid, but there a few free ones with the most
+      limited features. Many of those tools are also meant to help define the
+      right SEO strategy in the first place, when you try to figure out which
+      queries you should be optimizing for(a step called
+      <i>keyword research</i>). For instance, if the tool tells you that a query
+      doesn't involve many competitors fighting for it, yet Google Trends tells
+      you it is a query that is heavily being ran by Google users, then you
+      might be sitting on a goldmine!
+    </p>
+    <p>
+      Another important note to keep in mind is that a SEO strategy will of
+      course contain the <i>targeted queries</i> of someone actively looking for
+      you(for insatnce, Safeway probably works hard to be ranked high on the
+      "safeway" query), but also the <i>untargeted queries</i> of someone who is
+      not specifically looking for you, but whose attention you seek(for
+      instance, safeway probably works even harder to be ranked high on the "San
+      francisco grocery store" query, or one even more competitive: just
+      "grocery store", if its relevant for them). Deciding which queries make
+      sense to pursue is a critical component of SEO strategy.
+    </p>
+    <h2>Accessibility</h2>
+    <p>
+      In real life, it is estimated that a website may lose as high as 15% of
+      its visitors to bad accessibility. Think: someone with poor eyesight who
+      couldn't read the menu button properly because of their low contrast, and
+      gave up; or someone who worked hard with their hands today, and can't
+      handle the mouse anymore to fill in a long form, and the keyboard
+      navigation won't work...
+    </p>
+    <p>
+      Having a semantic and valid HTML markup will already go you long way to
+      make one's website accessible; but it is definitely not enough, and issues
+      are hidden in the detail(images, colours...)
+    </p>
+    <p>
+      Also, for complex applications for which you feel like some bits of the
+      page should be more explict in their purpose, you can give that extra
+      information with WAI-ARIA(often referred to as just "ARIA").
+    </p>
+    <h3><em>The specific case of newtork fault-tolerance.</em></h3>
+    <p>
+      Another kind of loss of accessibility is when resources(such as CSS files,
+      images, javascript files) are in accessible, such as for net work reasons.
+      Without CSS,without JavaScript files, without images, your website should
+      still work. It may not have much styling and interactivity, but people
+      must still be able to post that micro-blogging status, for instance.
+      Browsers often have built-in tools(or plugins) that allow you to see your
+      website without images, without CSS, without JavaScript,..
+    </p>
+    <h2>Front-end performance</h2>
+    <p>
+      Did you know that over 90% of time spent by a user waiting for your
+      webpage is happening in the front-end, rather than the back-end? The
+      reasons are pretty obvious when you think about it: you can host your code
+      on faster servers, or scale it on a higher number of them; but there's
+      nothing you can do to make the user's brower environment better. To ensure
+      all browers can interpret it, you have to send your code that respects web
+      standards(which are sometimes verbose), and you can't make that code
+      smaller than the standards allowed. It has to go through the network, be
+      it entirely loaded and run by the browser, you can't have the browser
+      "preload" anything. Well, actualy...
+    </p>
+    <p>
+      There are many pitfalls and tricks to address web performance. Always
+      attempt to either make each file smaller, or to lower the number of
+      files(it is magnitudes more expensive to dowload two files of 50kB each,
+      than one file of 100kB).
+      <em>Some pitfalls:</em>
+      <li>
+        Forgetting to enable GZip and set Cache expirations on your web server's
+        configuration
+      </li>
+      <li>
+        Using many external JavaScript libraries, including some you absolutely
+        didn't need
+      </li>
+      <li>Using huge images displayed smaller</li>
+      <li>Leaving the metadata in your images</li>
+      <em>Some tricks:</em>
+      <li>Image sprites</li>
+      <li>
+        No CSS or JS inside the HTML(.js and .css files will be cached on first
+        call, won't have to be downloaded next time)
+      </li>
+      <li>
+        Ajax calls that can be done with GET HTTP verb should use it (that way,
+        they are cached)
+      </li>
+      <li>CSS and JS files are concatenated into one single file each</li>
+      <li>CSS and JS files are "minified"</li>
+      <li>Images are recompressed</li>
+    </p>
+    <p>
+      As usual with quality, you will want to measure. But there are many ways
+      to measure a front-end's load time. Should it be the Time To First Byte?
+      Page load Time? Time To First Paint? You should define your strategy, and
+      monitor the measure you feel are relevant.
+    </p>
+    <p>
+      Typically, the way measures are done is:
+      <li>
+        The cache is cleared, the page is loaded, and the measurements are
+        noted. The operation is done three times-If one is very significantly
+        apart to the others, it is removed, to account for potential network
+        issues unrelated to the website. The final result is the average of
+        remaining calls.
+      </li>
+      <li>
+        The page is loaded without clearing the cache, and the measurements
+        noted. Again, three times, removing every significantly wrong measures,
+        and the final result is the average. How to measure,you ask? Just use
+        the performance measuring tools that are likely to be in your browser.
+      </li>
+    </p>
+  </body>
+</html>
